@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "c7383da2-1b27-4cfd-a443-92ae3f1b3975",
+		"name": "RealState",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "RegisterRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"pepe\",\r\n    \"fullName\":\"pepe1\",\r\n    \"email\":\"pepe@gmail.com\",\r\n    \"password\":\"pepe\",\r\n    \"password2\":\"pepe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginRequest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"christianPP\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogoutRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favs",
+			"item": [
+				{
+					"name": "agregarFav",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/viviendas/favs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"favs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MisFavs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/viviendas/favs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"favs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarFav",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9000/viviendas/favs/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"favs",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Viviendas",
+			"item": [
+				{
+					"name": "ObtenerTodasLasViviendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/viviendas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ViviendasPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/viviendas/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"{id}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ViviendasPorArgs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/viviendas/?cat&ciu&pre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								""
+							],
+							"query": [
+								{
+									"key": "cat",
+									"value": null
+								},
+								{
+									"key": "ciu",
+									"value": null
+								},
+								{
+									"key": "pre",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearVivienda",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"La casa de tus sueños\",\r\n    \"descripcion\": \"Lorem ipsum dolor sit amet egis rebujis taeq lus xeris er sum dor met car sirus resto\",\r\n    \"precio\": 350000.0,\r\n    \"numHabitaciones\": 3,\r\n    \"metrosCuadrados\": 300,\r\n    \"direccion\": \"Calle del Streamer agarrao\",\r\n    \"localidad\": \"Andorra\",\r\n    \"provincia\": \"Andorra\",\r\n    \"coordenadas\": \"2\",\r\n    \"propietario\": null,\r\n    \"imagen\": [],\r\n    \"categoria\": \"Venta\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/viviendas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarVivienda",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/viviendas/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditarVivienda",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"ViviendaEditada\",\r\n    \"descripcion\": \"Lorem ipsum dolor sit amet aegium rest carem lexas at morus readolus. Sic armet sid ares cad aenes restus gareum\",\r\n    \"precio\": 35.0,\r\n    \"numHabitaciones\": 3,\r\n    \"metrosCuadrados\": 300,\r\n    \"direccion\": \"micasa\",\r\n    \"localidad\": \"Sevilla\",\r\n    \"provincia\": \"Sevilla\",\r\n    \"coordenadas\": \"2\",\r\n    \"propietario\": null,\r\n    \"imagen\": [],\r\n    \"categoria\": \"Alquiler\",\r\n    \"id\": \"7efe466a-10db-4fbe-a095-3091eb69ed9f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/viviendas/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagen",
+			"item": [
+				{
+					"name": "ImagenADD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_KEY}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/christianPP/Desktop/1572424649_614672_1572453030_noticia_normal.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/viviendas/77a46e18-6a9b-4120-a19b-9073f2a95051/img",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"viviendas",
+								"77a46e18-6a9b-4120-a19b-9073f2a95051",
+								"img"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImg",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGcidOiJIUzUxMiJ9.eyJzdWIiOiI0NzM3ZDQ5YS1mODkyLTQwMmUtYjZiOS1mY2IwY2MzZThmNWEiLCJleHAiOjE2MTUyNzY3MjcsImlhdCI6MTYxNDY3MTkyNywicmVmcmVzaCI6ZmFsc2UsInVzZXJuYW1lIjoiY2hyaXN0aWFuUFAiLCJlbWFpbCI6ImNocmlzdGlhbnBheW8zMkBnbWFpbC5jb20iLCJyb2xlcyI6IltBRE1JTiwgVVNFUl0ifQ.aVpI5BW1CeGxjiEAud1-E71cqZf537Q9guN3GcGGNqAMlqbsmXngGRprkJQFFFEqdKle0fjo7_YMmJtJSJoczg",
+				"type": "string"
+			}
+		]
+	}
+}
